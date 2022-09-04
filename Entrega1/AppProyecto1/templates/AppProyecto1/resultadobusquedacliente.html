@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de busqueda de clientes</title>
+</head>
+<body>
+<h1>BUSQUEDA DE CLIENTE</h1>
+
+    {% if clientes %}
+    <ul>{% for cliente in clientes %}
+            <li>{{ cliente.nombre }}</li>
+            <li>{{ cliente.apellido }}</li>
+            <li>{{ cliente.edad }}</li>
+            <li>{{ cliente.mail }}</li>
+        {% endfor %}
+    {% else %}
+        No se encontraron resultados de busqueda
+    {% endif %}
+    </ul>
+</body>
+</html>

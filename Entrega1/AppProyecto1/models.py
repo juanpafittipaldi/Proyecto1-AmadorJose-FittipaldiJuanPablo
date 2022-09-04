@@ -6,7 +6,7 @@ class mozo(models.Model):
     nombre= models.CharField(max_length=50)
     apellido= models.CharField(max_length=50)
     edad= models.IntegerField()
-    sector=models.DateField()
+    sector=models.CharField(max_length=50)
 
 class cliente(models.Model):
     nombre= models.CharField(max_length=50)
