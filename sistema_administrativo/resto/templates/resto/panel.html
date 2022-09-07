@@ -1,0 +1,47 @@
+{% extends 'resto/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    
+{% include 'resto/estado.html' %}
+
+<br>
+    <div class="row">
+        <div class="col-md-5">
+            <h5>CLIENTES</h5>
+            <hr>
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Pedido</th>
+                    </tr>
+                </table> 
+                <a href="" class="btn btn-primary btn-sm btn-block">Crear Cliente</a>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h5>ULTIMOS PEDIDOS</h5>
+            <hr>
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Fecha Pedido</th>
+                        <th>Estado</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </table> 
+                <a href="" class="btn btn-primary btn-sm btn-block">Crear Cliente</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

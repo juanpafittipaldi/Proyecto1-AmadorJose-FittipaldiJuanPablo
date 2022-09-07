@@ -1,0 +1,10 @@
+body{
+    background-color: rgba(169, 169, 169, 0.25);
+}
+h5{
+    text-transform: uppercase;
+}
+
+.logo{
+    max-width: 200px;
+}
