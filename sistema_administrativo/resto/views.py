@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import * 
+#Esta importación faltaba y por eso no aparecía PedidoForm como undefined. 
+from .formularios import PedidoForm 
+
 # Create your views here.
 def home(request):
     pedidos = Pedido.objects.all()

@@ -1,5 +1,5 @@
-from django.formularios import ModelForm
-from .models import Pedido
+from django.forms import ModelForm
+from .models import *
 
 
 class PedidoForm(ModelForm):
