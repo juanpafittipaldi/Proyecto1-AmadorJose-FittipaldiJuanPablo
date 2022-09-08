@@ -22,8 +22,14 @@ def productos(request):
     return render(request, 'resto/productos.html', {'lista' :productos})
 
 def cliente(request, pk_cliente):
-    cliente = Cliente.objects.get(id=pk_cliente)
-    return render(request, 'resto/cliente.html')    
+    #Con esto entonces se puede encadenar el str al id del cliente 
+    cliente = Cliente.objects.get(id=pk_cliente) 
+    #Data de los pedidos al perfil del cliente 
+    pedidos = cliente.pedido_set.all()
+    pedidos_contador = pedidos.count()
+    context = {'cliente':cliente, 'pedidos':pedidos, 'pedidos_contador':pedidos_contador}
+    #Se agrega el contexto
+    return render(request, 'resto/cliente.html', context)    
 
 def crearPedido(request):
 	form = PedidoForm()

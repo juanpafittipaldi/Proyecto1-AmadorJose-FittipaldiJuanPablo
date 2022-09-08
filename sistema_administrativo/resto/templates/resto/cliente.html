@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md">
             <div class="card card-body">
-                <h5>Cliente:</h5>
+                <h5>Cliente: {{cliente.name}}</h5>
                 <hr>
                 <a class="btn btn-outline-info  btn-sm btn-block mb-2" href="">Actualizar Cliente</a>
                 <a class="btn btn-outline-danger  btn-sm btn-block" href="">Eliminar Cliente</a>
@@ -20,8 +20,8 @@
             <div class="card card-body">
                 <h5>Info de contacto</h5>
                 <hr>
-                <p>Correo: </p>
-                <p>Telefono: </p>
+                <p>Correo: {{cliente.email}} </p>
+                <p>Telefono: {{cliente.phone}}</p>
             </div>
         </div>
     
@@ -29,7 +29,7 @@
             <div class="card card-body">
                 <h5>Total Pedidos</h5>
                 <hr>
-                <h1 style="text-align: center;padding: 10px"></h1>
+                <h1 style="text-align: center;padding: 10px">{{pedidos_contador}}</h1>
             </div>
         </div>
     </div>
@@ -53,12 +53,21 @@
                 <table class="table table-sm">
                     <tr>
                         <th>Producto</th>
-                        <th>Categoria</th>
                         <th>Fecha Pedido</th>
                         <th>Estado</th>
                         <th>Actualizar</th>
                         <th>Eliminar</th>
                     </tr>
+                    {% for pedido in pedidos %}
+                    <tr>
+                        <td>{{pedido.producto}}</td>
+                        <td>{{pedido.fecha_creacion}}</td>
+                        <td>{{pedido.status}}</td>
+                        <td><a href="">Actualizar</a></td>
+                        <td><a href="">Eliminar</a></td>
+                    </tr>
+
+                    {% endfor %}
                 </table>
             </div>
         </div>
