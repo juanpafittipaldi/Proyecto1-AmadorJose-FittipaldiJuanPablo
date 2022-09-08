@@ -3,7 +3,17 @@ from django.http import HttpResponse
 from .models import * 
 # Create your views here.
 def home(request):
-    return render(request, 'resto/panel.html')
+    pedidos = Pedido.objects.all()
+    clientes = Cliente.objects.all()
+    total_clientes = clientes.count()
+    total_pedidos = pedidos.count()
+    entregado = pedidos.filter(status='Entregado').count()
+    pendiente = pedidos.filter(status='Pendiente').count()
+
+    context= {'pedidos':pedidos, 
+    'clientes':clientes, 'total_pedidos':total_pedidos, 'entregado':entregado, 'pendiente':pendiente}
+
+    return render(request, 'resto/panel.html', context)
 
 def productos(request):
     productos = Producto.objects.all()
