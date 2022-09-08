@@ -21,7 +21,8 @@ def productos(request):
     productos = Producto.objects.all()
     return render(request, 'resto/productos.html', {'lista' :productos})
 
-def cliente(request):
+def cliente(request, pk_cliente):
+    cliente = Cliente.objects.get(id=pk_cliente)
     return render(request, 'resto/cliente.html')    
 
 def crearPedido(request):
