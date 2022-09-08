@@ -11,26 +11,32 @@
         <div class="col-md-5">
             <h5>CLIENTES</h5>
             <hr>
-            <div class="card card-body">
+            <div class="btn-wrap d-flex justify-content-center mb-3">
+                <a href="" class="btn btn-primary btn-sm btn-block">Crear Cliente</a>
+            </div>
+            <div class="card card-body box-size">
                 <table class="table table-sm">
-                    <tr>
+                    <tr><th></th>
                         <th>Cliente</th>
                         <th>Telefono</th>
                     </tr>
                     {% for cliente in clientes %}
                         <tr>
+                            <td><a href="{% url 'cliente' cliente.id %}">VER</a></td>
                             <td>{{cliente.name}}</td>
                             <td>{{cliente.phone}}</td>
                         </tr>
                         {% endfor %}
                 </table> 
-                <a href="" class="btn btn-primary btn-sm btn-block">Crear Cliente</a>
             </div>
         </div>
         <div class="col-md-7">
             <h5>ULTIMOS PEDIDOS</h5>
             <hr>
-            <div class="card card-body">
+            <div class="btn-wrap d-flex justify-content-center">
+                <a href="{% url 'crear_pedido' %}" class="btn btn-primary btn-sm btn-block mb-3">Crear Pedido</a>
+            </div>
+            <div class="card card-body box-size">
                 <table class="table table-sm">
                     <tr>
                         <th>Producto</th>
@@ -50,7 +56,6 @@
 					</tr>
 				    {% endfor %}
                 </table> 
-                <a href="{% url 'crear_pedido' %}" class="btn btn-primary btn-sm btn-block">Crear Pedido</a>
             </div>
         </div>
     </div>

@@ -12,3 +12,8 @@ h5{
 .texto-negro{
     color: black !important; 
 }
+
+.box-size{
+    height: 218px;
+    overflow-y: scroll;
+}
