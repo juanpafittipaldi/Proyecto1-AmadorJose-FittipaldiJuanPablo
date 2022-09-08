@@ -22,3 +22,13 @@ def productos(request):
 def cliente(request):
     return render(request, 'resto/cliente.html')    
 
+def crearPedido(request):
+	form = PedidoForm()
+	if request.method == 'POST':
+		form = PedidoForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+
+	context = {'form':form}
+	return render(request, 'resto/formulario_pedido.html', context)
