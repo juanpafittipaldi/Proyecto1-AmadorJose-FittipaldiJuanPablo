@@ -6,4 +6,5 @@ urlpatterns = [
     path('productos/', views.productos, name="productos"),
     path('cliente/<str:pk_cliente>/', views.cliente, name="cliente"),
     path('crear_pedido/', views.crearPedido, name="crear_pedido"),
+    path('crear_cliente/', views.crearCliente, name="crear_cliente"),
 ]

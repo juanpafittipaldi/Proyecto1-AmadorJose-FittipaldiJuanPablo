@@ -1,0 +1,25 @@
+{%  extends 'resto/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <div class="card card-body">
+                <hr>
+                <form action="" method="POST" class="d-flex justify-content-center">
+                    {% csrf_token %}
+                    {{form}}
+                    
+                    <input type="submit" name="Crear Cliente">
+                </form>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import * 
 #Esta importación faltaba y por eso no aparecía PedidoForm como undefined. 
-from .formularios import PedidoForm 
+from .formularios import PedidoForm, ClienteForm
 # Create your views here.
 def home(request):
     pedidos = Pedido.objects.all()
@@ -38,6 +38,18 @@ def crearPedido(request):
 		if form.is_valid():
 			form.save()
 			return redirect('/')
-
+ 
 	context = {'form':form}
 	return render(request, 'resto/formulario_pedido.html', context)
+
+
+def crearCliente(request):
+	form = ClienteForm()
+	if request.method == 'POST':
+		form = ClienteForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+ 
+	context = {'form':form}
+	return render(request, 'resto/formulario_cliente.html', context)
