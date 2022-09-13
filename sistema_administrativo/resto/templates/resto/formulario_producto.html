@@ -1,0 +1,23 @@
+{%  extends 'resto/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <div class="card card-body">
+    
+                <form action="" method="POST" class="d-flex flex-column justify-content-center">
+                    {% csrf_token %}
+                    {{form}}
+                    
+                    <input class="mt-3" type="submit" name="Crear Producto">
+                </form>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
