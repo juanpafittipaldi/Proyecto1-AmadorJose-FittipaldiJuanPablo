@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import * 
 #Esta importación faltaba y por eso no aparecía PedidoForm (y luego el ClienteForm) como undefined. 
 from .formularios import PedidoForm, ClienteForm, ProductoForm
+#Para filtrar los pedidos en la vista del cliente
+from .filtros import PedidoFiltro
 # Create your views here.
 def home(request):
     pedidos = Pedido.objects.all()
@@ -27,8 +29,13 @@ def cliente(request, pk_cliente):
     #Data de los pedidos al perfil del cliente 
     pedidos = cliente.pedido_set.all()
     pedidos_contador = pedidos.count()
-    context = {'cliente':cliente, 'pedidos':pedidos, 'pedidos_contador':pedidos_contador}
+    
+    #Para filtrar 
+    filtro = PedidoFiltro(request.GET, queryset=pedidos)
+    pedidos = filtro.qs
+
     #Se agrega el contexto
+    context = {'cliente':cliente, 'pedidos':pedidos, 'pedidos_contador':pedidos_contador, 'filtro':filtro}
     return render(request, 'resto/cliente.html', context)    
 
 def crearPedido(request):
