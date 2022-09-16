@@ -63,7 +63,7 @@
                         <td>{{pedido.producto}}</td>
                         <td>{{pedido.fecha_creacion}}</td>
                         <td>{{pedido.status}}</td>
-                        <td><a href="">Actualizar</a></td>
+                        <td><a href="{% url 'actualizar_pedido' pedido.id %}">Actualizar</a></td>
                         <td><a href="">Eliminar</a></td>
                     </tr>
 

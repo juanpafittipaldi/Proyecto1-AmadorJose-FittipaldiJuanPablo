@@ -83,3 +83,18 @@ def crearProducto(request):
  
 	context = {'form':form}
 	return render(request, 'resto/formulario_producto.html', context)
+
+
+def actualizarPedido(request, pk): 
+	pedido = Pedido.objects.get(id=pk)
+	form = PedidoForm(instance=pedido)
+	
+	if request.method == 'POST': 
+		form = PedidoForm(request.POST, instance=pedido)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+		
+
+	context = {'form':form}
+	return render(request, 'resto/formulario_pedido.html', context)
