@@ -1,0 +1,25 @@
+{%  extends 'resto/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+    
+    
+                <p>¿Está seguro que quiere eliminar este pedido?</p>
+    
+                <form action="{% url 'eliminar_pedido' item.id  %}" method="POST">
+                    
+                    {% csrf_token %}
+                    <a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+    
+                    <input class="btn btn-danger" type="submit" name="Confirmar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

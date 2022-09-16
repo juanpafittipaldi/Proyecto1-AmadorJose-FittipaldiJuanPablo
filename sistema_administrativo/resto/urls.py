@@ -10,6 +10,8 @@ urlpatterns = [
     path('crear_producto/', views.crearProducto, name="crear_producto"), 
     #Actualizar Pedido
     path('actualizar_pedido/<str:pk>', views.actualizarPedido, name="actualizar_pedido"),
+    #Borrar Pedido
+    path('eliminar_pedido/<str:pk>', views.eliminarPedido, name="eliminar_pedido"),
 ]
 
 

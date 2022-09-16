@@ -98,3 +98,12 @@ def actualizarPedido(request, pk):
 
 	context = {'form':form}
 	return render(request, 'resto/formulario_pedido.html', context)
+
+
+def eliminarPedido(request, pk): 
+	pedido = Pedido.objects.get(id=pk)
+	if request.method == 'POST': 
+			pedido.delete()
+			return redirect('/')
+	context = {'item':pedido}
+	return render(request, 'resto/eliminar_pedido.html', context)
